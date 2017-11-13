@@ -1,14 +1,13 @@
 version: '2'
 services:
   mysql:
-    image: mysql:5.7
+    image: mysql:latest
     ports:
       - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=password
 
   azkexec:
-    build: ./azkaban-execserver/
     image: rinscy/azkaban-execserver:3.1.0
     environment:
       - MYSQL_HOST=mysql
@@ -16,7 +15,6 @@ services:
       - "12321:12321"
 
   azkweb:
-      build: ./azkaban-webserver
       image: rinscy/azkaban-webserver:3.1.0
       environment:
         - MYSQL_HOST=mysql

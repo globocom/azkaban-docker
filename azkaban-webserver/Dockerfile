@@ -18,7 +18,7 @@ RUN set -x \
            ca-certificates \
            unzip \
            mysql-client \
-           openjdk-8-jdk
+           default-jdk
 
 RUN git clone https://github.com/azkaban/azkaban.git && cd azkaban \
     && git checkout tags/$AZKABAN_VERSION \
